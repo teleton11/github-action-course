@@ -9,26 +9,46 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v6
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v6
+      - name: Inspect repository structure
+        run: |
+          echo "Current directory:"
+          pwd
+
+          echo "Repository root:"
+          ls -la
+
+          echo "04-using-actions directory:"
+          ls -la ./04-using-actions
+
+          echo "React application directory:"
+          ls -la ./04-using-actions/react-app
+
+          echo "Package files:"
+          find ./04-using-actions/react-app \
+            -maxdepth 1 \
+            \( -name "package.json" -o -name "package-lock.json" \)
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: "24.x"
-
-      - name: Show repository structure
-        run: |
-          pwd
-          find . -maxdepth 3 -type f | sort
+          cache: npm
+          cache-dependency-path: ./04-using-actions/react-app/package-lock.json
 
       - name: Install dependencies
-        shell: bash
-        run: |
-          cd "./04-using-actions/react-app"
-          pwd
-          ls -la
-          npm ci
+        working-directory: ./04-using-actions/react-app
+        run: npm ci
+
+      - name: Run tests
+        working-directory: ./04-using-actions/react-app
+        run: npm test -- --watchAll=false
+
+      - name: Build application
+        working-directory: ./04-using-actions/react-app
+        run: npm run build
         # 0. Checkout the code from the repository
         # 1. Install deps of our react applications
         # 2. Execute automated test.
