@@ -17,4 +17,4 @@ jobs:
               working-directory: ./04-using-actions/react-app
         # 0. Checkout the code from the repository
         # 1. Install deps of our react applications
-        # 2. Execute automated test
+        # 2. Execute automated test.
