@@ -14,6 +14,7 @@ jobs:
                 node-version: '24.x'
             - name: Install dependencies
               run: npm ci
-       # 0. Checkout the code from the repository
+              working-directory: 04-using-actions/react-app
+        # 0. Checkout the code from the repository
         # 1. Install deps of our react applications
         # 2. Execute automated test
