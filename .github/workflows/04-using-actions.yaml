@@ -1,0 +1,20 @@
+name: 04- Using Actions
+
+on: push
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+       # 0. Checkout the code from the repository
+        # 1. Install deps of our react applications
+        # 2. Execute automated test
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v3
+            - name: Run a one-line script
+              run: echo "Hello, world!"
+            - name: Run a multi-line script
+              run: |
+                echo "Add other actions to build,
+                test, and deploy your project."
