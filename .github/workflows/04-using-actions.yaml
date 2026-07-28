@@ -8,7 +8,6 @@ jobs:
         steps:
             - name: Checkout code
               uses: actions/checkout@v7
-<<<<<<< HEAD
             - name: Setup Node
               uses: actions/setup-node@v6
               with: 
@@ -18,10 +17,3 @@ jobs:
        # 0. Checkout the code from the repository
         # 1. Install deps of our react applications
         # 2. Execute automated test
-=======
-            - name: Printing folders
-              run: ls
-       # 0. Checkout the code from the repository
-        # 1. Install deps of our react applications
-        # 2. Execute automated test
->>>>>>> 9e42bb1832586b22c39b44fe2ed2f4a08d5b55c4
