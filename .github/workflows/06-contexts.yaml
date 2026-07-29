@@ -1,6 +1,8 @@
 name: 06- Contexts
 
-on: push
+on:
+    push:
+    workflow_dispatch:
 
 jobs:
     echo-data:
@@ -8,12 +10,12 @@ jobs:
         steps:
             - name: Display information
               run: |
-                 echo "Event name is ${{ github.event_name }}"
-                 echo : RefL {{ github.ref }}
-                 echo: SHA: {{ github.sha }}
-                 echo: ActorL {{ github.actor }}
+                 echo "Event name: {{ github.event_name }}"
+                 echo "Ref: {{ github.ref }}"
+                 echo "SHA: {{ github.sha }}""
+                 echo "Actor: {{ github.actor }}"
                  echo "Workflow: {{ github.workflow }}"
-                 echo: :Run ID: {{ github.run_id }}
+                 echo "Run ID: {{ github.run_id }}"
                  echo "Run Number: {{ github.run_number }}"
             - name: Retrieve Variable
               run: |
