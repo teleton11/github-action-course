@@ -1,4 +1,5 @@
 # github-action-course
 github-action-course - DevSecOps
 
-Repositroy containing all examples and notes for the Github Actions Course
+Repositroy containing all examples and notes for the Github Actions Course.
+This has been edited.
