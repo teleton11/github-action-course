@@ -6,6 +6,9 @@ on:
         branches:
              - main
 
+        branches:
+            - main
+            
 jobs:
     echo:
         runs-on: ubuntu-latest
