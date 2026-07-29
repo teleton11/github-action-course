@@ -3,6 +3,8 @@ name: 05 - 1 -1 Event Filters and Activity types
 on:
     pull_request:
         types: [opened, synchronize]
+        branches:
+             - main
 
 jobs:
     echo:
