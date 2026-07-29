@@ -12,7 +12,7 @@ jobs:
               run: |
                  echo "Event name: {{ github.event_name }}"
                  echo "Ref: {{ github.ref }}"
-                 echo "SHA: {{ github.sha }}""
+                 echo "SHA: {{ github.sha }}"
                  echo "Actor: {{ github.actor }}"
                  echo "Workflow: {{ github.workflow }}"
                  echo "Run ID: {{ github.run_id }}"
