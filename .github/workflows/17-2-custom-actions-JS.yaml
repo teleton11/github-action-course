@@ -29,6 +29,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+         # ADD THESE THREE LINES
+      - name: Install custom action dependencies
+        working-directory: .github/actions/js-dependency-update
+        run: npm ci
+
       - name: Check for dependency updates
         id: update-deps
         uses: ./.github/actions/js-dependency-update
