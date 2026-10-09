@@ -1,3 +1,4 @@
+
 # See 17-custom-actions/README.md for more information
 # about how to create and use custom actions in workflows.
 
@@ -29,6 +30,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+
+      # FIX: Install the custom action's dependencies
+      - name: Install custom action dependencies
+        working-directory: .github/actions/js-dependency-update
+        run: npm ci
+
       - name: Check for dependency updates
         id: update-deps
         uses: ./.github/actions/js-dependency-update
@@ -38,6 +45,7 @@ jobs:
           working-directory: ${{ inputs.working-dir }}
           gh-token: ${{ secrets.GITHUB_TOKEN }}
           debug: ${{ inputs.debug }}
+
       - name: Print custom action output
         run: |
           echo "Updates available: ${{ steps.update-deps.outputs.updates-available }}"
